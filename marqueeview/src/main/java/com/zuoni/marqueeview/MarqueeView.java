@@ -26,20 +26,17 @@ public class MarqueeView extends ViewFlipper {
     private int interval = 2000;
     private int animDuration = 500;
 
-
     public MarqueeView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
         setFlipInterval(interval);//设置切换时间间隔
     }
 
-
     // 根据公告字符串列表启动轮播
     public void startWithList(List<ALiNotice> mList) {
         this.mList = mList;
         start();
     }
-
 
     /**
      * 启动轮播
@@ -54,7 +51,7 @@ public class MarqueeView extends ViewFlipper {
 
         //根据List生成View
         for (int i = 0; i < mList.size(); i++) {
-            View mView = LayoutInflater.from(mContext).inflate(R.layout.xixi, null);
+            View mView = LayoutInflater.from(mContext).inflate(R.layout.view_style, null);
             LinearLayout layoutNotice01 = (LinearLayout) mView.findViewById(R.id.layoutNotice01);
             LinearLayout layoutNotice02 = (LinearLayout) mView.findViewById(R.id.layoutNotice02);
             TextView tvType01 = (TextView) mView.findViewById(R.id.tvType01);
@@ -107,6 +104,4 @@ public class MarqueeView extends ViewFlipper {
         if (isSetAnimDuration) animOut.setDuration(animDuration);
         setOutAnimation(animOut);//设置退出动画
     }
-
-
 }
